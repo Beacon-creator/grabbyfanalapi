@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node app"
+    "start": "node app",
+    "start:dev": "nodemon app"
   },
   "description": "grabbyfanalapi",
   "author": {
@@ -21,6 +22,7 @@
     "mongoose": "^8.7.0",
     "morgan": "^1.7.0",
     "nodemailer": "^6.9.15",
+    "nodemon": "^3.1.7",
     "pug": "^3.0.3",
     "serve-favicon": "^2.3.0",
     "winston": "^3.14.2"

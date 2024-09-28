@@ -1,0 +1,3 @@
+C:\Users\user\OneDrive\Documents\ExpressApps\grabbyfanalapi\obj\Debug\grabbyfanalapi.njsproj.AssemblyReference.cache
+C:\Users\user\OneDrive\Documents\ExpressApps\grabbyfanalapi\obj\Debug\grabbyfanalapi.njsproj.CoreCompileInputs.cache
+C:\Users\user\OneDrive\Documents\ExpressApps\grabbyfanalapi\bin\Microsoft.NodejsTools.WebRole.dll

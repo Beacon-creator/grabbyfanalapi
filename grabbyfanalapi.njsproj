@@ -29,7 +29,60 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include=".env" />
+    <Content Include=".gitignore" />
     <Content Include="app.js" />
+    <Content Include="controllers\bankLinksController.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="controllers\CardLinksController.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="controllers\LoginController.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="controllers\PasswordResetController.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="controllers\SignupController.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="controllers\UserController.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="middleware\auth.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="middleware\logger.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="middleware\verifyTokenauth.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="mongoose\connectMongo.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="mongoose\schemas\bankLink.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="mongoose\schemas\cardLink.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="mongoose\schemas\emailVerification.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="mongoose\schemas\passwordReset.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="mongoose\schemas\passwordresetToken.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="mongoose\schemas\users.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="mongoose\schemas\verificationCode.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="routes\index.js" />
     <Content Include="routes\users.js" />
     <Content Include="package.json" />
@@ -40,6 +93,10 @@
     <Content Include="views\error.pug" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="controllers\" />
+    <Folder Include="mongoose\" />
+    <Folder Include="mongoose\schemas\" />
+    <Folder Include="middleware\" />
     <Folder Include="public\" />
     <Folder Include="public\images\" />
     <Folder Include="public\javascripts\" />
