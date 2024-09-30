@@ -1,16 +1,17 @@
-import { Router } from 'express';
-import { genSalt, hash } from 'bcryptjs';
+// controllers/userController.mjs
+
+import pkg from 'bcryptjs'; // Import the entire bcryptjs module
 import { createTransport } from 'nodemailer';
-import User, { findById, findOne } from '../models/User'; // Mongoose User model
-import EmailVerification, { findOne as _findOne, deleteOne } from '../models/EmailVerification'; // Email verification model
-require('dotenv').config();
+import User from '../mongoose/schemas/users.mjs'; // Mongoose User model
+import EmailVerification from '../mongoose/schemas/emailVerification.mjs'; // Email verification model
 
-const router = Router();
 
-// GET: api/users/:id
-router.get('/:id', async (req, res) => {
+const { genSalt, hash } = pkg; // Destructure what you need from the bcryptjs package
+
+// Fetch user by ID
+export const getUserById = async (req, res) => {
     try {
-        const user = await findById(req.params.id);
+        const user = await User.findById(req.params.id);
         if (!user) {
             return res.status(404).json({ message: 'User not found' });
         }
@@ -19,10 +20,10 @@ router.get('/:id', async (req, res) => {
         console.error('Error fetching user:', error);
         res.status(500).json({ message: 'Internal server error' });
     }
-});
+};
 
-// POST: api/signup
-router.post('/', async (req, res) => {
+// User signup with email verification
+export const signupUser = async (req, res) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
@@ -30,7 +31,7 @@ router.post('/', async (req, res) => {
     }
 
     try {
-        const existingUser = await findOne({ email: email.toLowerCase() });
+        const existingUser = await User.findOne({ email: email.toLowerCase() });
         if (existingUser) {
             return res.status(409).json({ message: 'User with this email already exists' });
         }
@@ -46,7 +47,6 @@ router.post('/', async (req, res) => {
 
         await newUser.save();
 
-        // Generate verification code
         const verificationCode = generateVerificationCode();
         const expiryDate = new Date(Date.now() + 60 * 60 * 1000); // 1 hour expiry
 
@@ -60,7 +60,6 @@ router.post('/', async (req, res) => {
 
         console.log(`Verification code ${verificationCode} sent to ${email} with expiry ${expiryDate}.`);
 
-        // Send verification email
         const subject = 'Email Verification Code';
         const message = `Your email verification code is ${verificationCode}.`;
 
@@ -71,14 +70,14 @@ router.post('/', async (req, res) => {
         console.error('Error during signup:', error);
         res.status(500).json({ message: 'Internal server error' });
     }
-});
+};
 
-// POST: api/signup/verify-email
-router.post('/verify-email', async (req, res) => {
+// Verify email with verification code
+export const verifyEmail = async (req, res) => {
     const { email, code } = req.body;
 
     try {
-        const emailVerification = await _findOne({
+        const emailVerification = await EmailVerification.findOne({
             email: email.toLowerCase(),
             verificationCode: code,
             expiryDate: { $gt: new Date() }, // Check if the code is not expired
@@ -88,7 +87,7 @@ router.post('/verify-email', async (req, res) => {
             return res.status(400).json({ message: 'Invalid or expired verification code' });
         }
 
-        const user = await findOne({ email: email.toLowerCase() });
+        const user = await User.findOne({ email: email.toLowerCase() });
         if (!user) {
             return res.status(404).json({ message: 'User not found' });
         }
@@ -96,8 +95,8 @@ router.post('/verify-email', async (req, res) => {
         user.isEmailVerified = true;
         await user.save();
 
-        // Remove used verification code
-        await deleteOne({ email: email.toLowerCase() });
+        // Remove the used verification code
+        await EmailVerification.deleteOne({ email: email.toLowerCase() });
 
         console.log(`Email verified successfully for ${email}`);
         res.json({ message: 'Email verified successfully' });
@@ -105,9 +104,9 @@ router.post('/verify-email', async (req, res) => {
         console.error('Error during email verification:', error);
         res.status(500).json({ message: 'Internal server error' });
     }
-});
+};
 
-// Helper function to generate verification code
+// Helper function to generate a 6-digit verification code
 const generateVerificationCode = () => {
     return Math.floor(100000 + Math.random() * 900000).toString();
 };
@@ -131,5 +130,3 @@ const sendEmail = async (to, subject, text) => {
 
     return transporter.sendMail(mailOptions);
 };
-
-export default router;

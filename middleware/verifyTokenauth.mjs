@@ -1,7 +1,9 @@
-import { verify } from 'jsonwebtoken';
-require('dotenv').config();
+import jwt from 'jsonwebtoken'; // Default import
+import dotenv from 'dotenv';
 
-const verifyToken = (req, res, next) => {
+dotenv.config(); 
+
+export const verifyToken = (req, res, next) => {
     const token = req.header('Authorization')?.split(' ')[1];
 
     if (!token) {
@@ -9,7 +11,7 @@ const verifyToken = (req, res, next) => {
     }
 
     try {
-        const decoded = verify(token, process.env.JWT_SECRET);
+        const decoded = jwt.verify(token, process.env.JWT_SECRET); // Use jwt.verify
         req.user = decoded;
         next();
     } catch (error) {
@@ -17,5 +19,4 @@ const verifyToken = (req, res, next) => {
         res.status(401).json({ message: 'Invalid token.' });
     }
 };
-
-export default { verifyToken };
+export default verifyToken;

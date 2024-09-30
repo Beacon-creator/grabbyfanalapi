@@ -1,13 +1,11 @@
-import { Router } from 'express';
+// controllers/loginController.mjs
+
 import { compare } from 'bcryptjs';
 import { sign } from 'jsonwebtoken';
-import { findOne } from '../models/User'; // Mongoose User model
-require('dotenv').config();
+import User from '../mongoose/schemas/User.mjs'; // Mongoose User model
 
-const router = Router();
-
-// POST: api/login
-router.post('/', async (req, res) => {
+// Function to handle user login
+export const loginUser = async (req, res) => {
     const { identifier, password } = req.body;
 
     if (!identifier || !password) {
@@ -16,7 +14,7 @@ router.post('/', async (req, res) => {
 
     try {
         // Find the user by email or phone number
-        const user = await findOne({
+        const user = await User.findOne({
             $or: [{ email: identifier.toLowerCase() }, { phoneNumber: identifier }],
         });
 
@@ -38,7 +36,7 @@ router.post('/', async (req, res) => {
         console.error('Error during login:', error);
         return res.status(500).json({ message: 'Internal server error' });
     }
-});
+};
 
 // Function to create JWT token
 const createToken = (user) => {
@@ -64,5 +62,3 @@ const createToken = (user) => {
 
     return token;
 };
-
-export default router;

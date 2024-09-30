@@ -1,13 +1,8 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const jwt = require('jsonwebtoken');
-const { verifyToken } = require('../middleware/auth');
-const BankLink = require('../models/BankLink');
-const VerificationCode = require('../models/VerificationCode');
-const { sendEmail } = require('../services/emailService');
-require('dotenv').config();
+// controllers/bankLinkController.js
 
-const router = express.Router();
+import BankLink from '../mongoose/schemas/BankLink.mjs';
+import VerificationCode from '../mongoose/schemas/VerificationCode.mjs';
+import { sendEmail } from '../services/emailService.mjs';
 
 // Generate Verification Code
 const generateVerificationCode = () => {
@@ -15,21 +10,21 @@ const generateVerificationCode = () => {
     return random.toString();
 };
 
-// GET: api/bank-links
-router.get('/', verifyToken, async (req, res) => {
+// Get all bank links
+export async function getBankLinks(req, res) {
     try {
-        const bankLinks = await BankLink.find();
+        const bankLinks = await find();
         res.status(200).json(bankLinks);
     } catch (error) {
         console.error('Error occurred while fetching bank links:', error);
         res.status(500).json({ message: 'Internal server error' });
     }
-});
+}
 
-// GET: api/bank-links/:id
-router.get('/:id', verifyToken, async (req, res) => {
+// Get a specific bank link by ID
+export async function getBankLinkById(req, res) {
     try {
-        const bankLink = await BankLink.findById(req.params.id);
+        const bankLink = await findById(req.params.id);
         if (!bankLink) {
             return res.status(404).json({ message: 'Bank link not found' });
         }
@@ -38,10 +33,10 @@ router.get('/:id', verifyToken, async (req, res) => {
         console.error('Error occurred while fetching the bank link:', error);
         res.status(500).json({ message: 'Internal server error' });
     }
-});
+}
 
-// POST: api/bank-links
-router.post('/', verifyToken, async (req, res) => {
+// Create a new bank link
+export async function createBankLink(req, res) {
     try {
         const newBankLink = new BankLink(req.body);
         await newBankLink.save();
@@ -50,12 +45,12 @@ router.post('/', verifyToken, async (req, res) => {
         console.error('Error occurred while creating the bank link:', error);
         res.status(500).json({ message: 'Internal server error' });
     }
-});
+}
 
-// PUT: api/bank-links/:id
-router.put('/:id', verifyToken, async (req, res) => {
+// Update a bank link by ID
+export async function updateBankLink(req, res) {
     try {
-        const updatedBankLink = await BankLink.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        const updatedBankLink = await findByIdAndUpdate(req.params.id, req.body, { new: true });
         if (!updatedBankLink) {
             return res.status(404).json({ message: 'Bank link not found' });
         }
@@ -64,12 +59,12 @@ router.put('/:id', verifyToken, async (req, res) => {
         console.error('Error occurred while updating the bank link:', error);
         res.status(500).json({ message: 'Internal server error' });
     }
-});
+}
 
-// DELETE: api/bank-links/:id
-router.delete('/:id', verifyToken, async (req, res) => {
+// Delete a bank link by ID
+export async function deleteBankLink(req, res) {
     try {
-        const bankLink = await BankLink.findByIdAndDelete(req.params.id);
+        const bankLink = await findByIdAndDelete(req.params.id);
         if (!bankLink) {
             return res.status(404).json({ message: 'Bank link not found' });
         }
@@ -78,13 +73,12 @@ router.delete('/:id', verifyToken, async (req, res) => {
         console.error('Error occurred while deleting the bank link:', error);
         res.status(500).json({ message: 'Internal server error' });
     }
-});
+}
 
-// POST: api/bank-links/send-verification-code
-router.post('/send-verification-code', verifyToken, async (req, res) => {
+// Send verification code to email
+export async function sendVerificationCode(req, res) {
     try {
         const email = req.user.email;
-
         const code = generateVerificationCode();
         const expiryDate = new Date(Date.now() + 15 * 60 * 1000); // Expires in 15 minutes
 
@@ -100,15 +94,15 @@ router.post('/send-verification-code', verifyToken, async (req, res) => {
         console.error('Error occurred while sending verification code:', error);
         res.status(500).json({ message: 'Internal server error' });
     }
-});
+}
 
-// POST: api/bank-links/verify-code
-router.post('/verify-code', verifyToken, async (req, res) => {
+// Verify the code sent to the user
+export async function verifyCode(req, res) {
     try {
         const { code } = req.body;
         const email = req.user.email;
 
-        const verificationCode = await VerificationCode.findOne({ email, code });
+        const verificationCode = await findOne({ email, code });
         if (!verificationCode || verificationCode.expiryDate < new Date()) {
             return res.status(400).json({ message: 'Invalid or expired verification code' });
         }
@@ -118,6 +112,4 @@ router.post('/verify-code', verifyToken, async (req, res) => {
         console.error('Error occurred while verifying code:', error);
         res.status(500).json({ message: 'Internal server error' });
     }
-});
-
-module.exports = router;
+}

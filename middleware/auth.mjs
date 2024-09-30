@@ -1,7 +1,7 @@
-import { verify } from 'jsonwebtoken';
-require('dotenv').config();
+import logger from '../middleware/logger.mjs'; // Import the entire logger
 
-export default function (req, res, next) {
+// JWT Middleware for authentication
+const auth = (req, res, next) => {
     const token = req.header('Authorization')?.replace('Bearer ', '');
     if (!token) {
         return res.status(401).send('Access denied. No token provided.');
@@ -11,6 +11,9 @@ export default function (req, res, next) {
         req.user = decoded;
         next();
     } catch (error) {
+        logger.error('Invalid token.', error); // Call the logger's error method
         res.status(401).send('Invalid token.');
     }
 };
+
+export default auth;

@@ -1,28 +1,23 @@
-import { Router } from 'express';
-import mongoose from 'mongoose';
-import jwt from 'jsonwebtoken';
-import { verifyToken } from '../middleware/auth'; // Middleware to verify JWT
-import CardLink, { find, findById } from '../models/CardLink'; // CardLink Mongoose Model
-require('dotenv').config();
+// controllers/cardLinkController.mjs
 
-const router = Router();
+import CardLink from '../mongoose/schemas/CardLink.mjs';
 
-// GET: api/card-links
-router.get('/', verifyToken, async (req, res) => {
+// Get all card links
+export const getCardLinks = async (req, res) => {
     try {
-        const cardLinks = await find();
+        const cardLinks = await CardLink.find();
         res.status(200).json(cardLinks);
     } catch (error) {
         console.error('Error occurred while fetching card links:', error);
         res.status(500).json({ message: 'Internal server error' });
     }
-});
+};
 
-// GET: api/card-links/:id
-router.get('/:id', verifyToken, async (req, res) => {
+// Get a specific card link by ID
+export const getCardLinkById = async (req, res) => {
     const { id } = req.params;
     try {
-        const cardLink = await findById(id);
+        const cardLink = await CardLink.findById(id);
         if (!cardLink) {
             return res.status(404).json({ message: 'CardLink not found' });
         }
@@ -31,10 +26,10 @@ router.get('/:id', verifyToken, async (req, res) => {
         console.error('Error occurred while fetching the card link:', error);
         res.status(500).json({ message: 'Internal server error' });
     }
-});
+};
 
-// POST: api/card-links
-router.post('/', verifyToken, async (req, res) => {
+// Create a new card link
+export const createCardLink = async (req, res) => {
     const cardLinkData = req.body;
 
     try {
@@ -45,15 +40,15 @@ router.post('/', verifyToken, async (req, res) => {
         console.error('Error occurred while creating the card link:', error);
         res.status(500).json({ message: 'Internal server error' });
     }
-});
+};
 
-// PUT: api/card-links/:id
-router.put('/:id', verifyToken, async (req, res) => {
+// Update an existing card link by ID
+export const updateCardLink = async (req, res) => {
     const { id } = req.params;
     const updatedData = req.body;
 
     try {
-        const cardLink = await findById(id);
+        const cardLink = await CardLink.findById(id);
         if (!cardLink) {
             return res.status(404).json({ message: 'CardLink not found' });
         }
@@ -67,14 +62,14 @@ router.put('/:id', verifyToken, async (req, res) => {
         console.error('Error occurred while updating the card link:', error);
         res.status(500).json({ message: 'Internal server error' });
     }
-});
+};
 
-// DELETE: api/card-links/:id
-router.delete('/:id', verifyToken, async (req, res) => {
+// Delete a card link by ID
+export const deleteCardLink = async (req, res) => {
     const { id } = req.params;
 
     try {
-        const cardLink = await findById(id);
+        const cardLink = await CardLink.findById(id);
         if (!cardLink) {
             return res.status(404).json({ message: 'CardLink not found' });
         }
@@ -85,6 +80,4 @@ router.delete('/:id', verifyToken, async (req, res) => {
         console.error('Error occurred while deleting the card link:', error);
         res.status(500).json({ message: 'Internal server error' });
     }
-});
-
-export default router;
+};

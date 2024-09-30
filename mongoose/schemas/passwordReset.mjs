@@ -1,4 +1,7 @@
-const passwordResetSchema = new Schema({
+import mongoose from 'mongoose'; // Import mongoose
+import { Schema } from "mongoose";
+
+const passwordResetSchema = new mongoose.Schema({
     email: {
         type: String,
         required: true,

@@ -1,20 +1,21 @@
-import { Router } from 'express';
-import { genSalt, hash } from 'bcryptjs';
+// controllers/passwordResetController.mjs
+
+import pkg from 'bcryptjs'; // Import the entire bcryptjs module
 import { createTransport } from 'nodemailer';
 import { randomBytes } from 'crypto';
-import { findOne } from '../models/User';
-import PasswordReset, { findOne as _findOne } from '../models/PasswordReset'; // Model for storing reset codes
-import PasswordResetToken, { findOne as __findOne, deleteOne } from '../models/PasswordResetToken'; // Model for temporary tokens
-require('dotenv').config();
+import User from '../mongoose/schemas/users.mjs'; // Mongoose User model
+import PasswordReset from '../mongoose/schemas/PasswordReset.mjs'; // Model for storing reset codes
+import PasswordResetToken from '../mongoose/schemas/PasswordResetToken.mjs'; // Model for temporary tokens
 
-const router = Router();
+const { genSalt, hash } = pkg; // Destructure what you need from the bcryptjs package
 
-// POST: api/password-reset/send-code
-router.post('/send-code', async (req, res) => {
+
+// Send password reset verification code
+export const sendPasswordResetCode = async (req, res) => {
     const { email } = req.body;
 
     try {
-        const user = await findOne({ email: email.toLowerCase() });
+        const user = await User.findOne({ email: email.toLowerCase() });
         if (!user) {
             return res.status(404).json({ message: 'User with this email does not exist.' });
         }
@@ -41,14 +42,14 @@ router.post('/send-code', async (req, res) => {
         console.error('Error during password reset request:', error);
         res.status(500).json({ message: 'Internal server error' });
     }
-});
+};
 
-// POST: api/password-reset/verify-code
-router.post('/verify-code', async (req, res) => {
+// Verify the password reset code
+export const verifyPasswordResetCode = async (req, res) => {
     const { email, code } = req.body;
 
     try {
-        const passwordReset = await _findOne({
+        const passwordReset = await PasswordReset.findOne({
             email: email.toLowerCase(),
             verificationCode: code,
             expiryDate: { $gt: new Date() }, // Check if the code is valid and not expired
@@ -58,7 +59,6 @@ router.post('/verify-code', async (req, res) => {
             return res.status(400).json({ message: 'Invalid or expired verification code.' });
         }
 
-        // Generate a temporary token valid for 15 minutes
         const tempToken = generateTemporaryToken();
         const tokenExpiryDate = new Date(Date.now() + 15 * 60 * 1000); // 15 minutes expiry
 
@@ -77,14 +77,14 @@ router.post('/verify-code', async (req, res) => {
         console.error('Error verifying code:', error);
         res.status(500).json({ message: 'Internal server error' });
     }
-});
+};
 
-// POST: api/password-reset/reset-password
-router.post('/reset-password', async (req, res) => {
+// Reset the password
+export const resetPassword = async (req, res) => {
     const { email, token, password } = req.body;
 
     try {
-        const resetToken = await __findOne({
+        const resetToken = await PasswordResetToken.findOne({
             email: email.toLowerCase(),
             token: token,
             expiryDate: { $gt: new Date() }, // Check if the token is valid and not expired
@@ -94,7 +94,7 @@ router.post('/reset-password', async (req, res) => {
             return res.status(400).json({ message: 'Invalid or expired token.' });
         }
 
-        const user = await findOne({ email: email.toLowerCase() });
+        const user = await User.findOne({ email: email.toLowerCase() });
         if (!user) {
             return res.status(404).json({ message: 'User with this email does not exist.' });
         }
@@ -105,8 +105,7 @@ router.post('/reset-password', async (req, res) => {
         user.passwordHash = passwordHash;
         await user.save();
 
-        // Remove the used token after resetting the password
-        await deleteOne({ email: email.toLowerCase(), token: token });
+        await PasswordResetToken.deleteOne({ email: email.toLowerCase(), token: token });
 
         console.log(`Password has been reset successfully for ${email}`);
         res.status(200).json({ message: 'Password has been reset successfully.' });
@@ -114,7 +113,7 @@ router.post('/reset-password', async (req, res) => {
         console.error('Error during password reset:', error);
         res.status(500).json({ message: 'Internal server error' });
     }
-});
+};
 
 // Helper function to generate a 6-digit verification code
 const generateVerificationCode = () => {
@@ -145,5 +144,3 @@ const sendEmail = async (to, subject, text) => {
 
     return transporter.sendMail(mailOptions);
 };
-
-export default router;

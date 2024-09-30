@@ -1,1 +1,11 @@
-console.log("Hello World!")
+// routes/loginRoutes.mjs
+
+import { Router } from 'express';
+import { loginUser } from '../controllers/loginController.mjs';
+
+const router = Router();
+
+// POST: api/login
+router.post('/', loginUser);
+
+export default router;
