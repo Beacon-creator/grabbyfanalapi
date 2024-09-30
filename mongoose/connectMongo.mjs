@@ -3,18 +3,16 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-mongoose.set("strictQuery", false);
+mongoose.set("strictQuery", false); // Optional: For handling strict queries, adjust as needed.
 
 const connectDB = async () => {
     try {
-        const conn = await mongoose.connect(process.env.MONGO_URI, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-            useCreateInex: true,
-        });
-        console.log(`Connected to MongoDB database successfully `);
+        // Mongoose 6.x and above automatically handles options like `useNewUrlParser` and `useUnifiedTopology`
+        const conn = await mongoose.connect(process.env.MONGO_URI);
+        console.log(`Connected to MongoDB database successfully`);
     } catch (error) {
-        console.log("Connect failed" + error.message);
+        console.error("Connect failed: " + error.message);
+        process.exit(1); // Optionally exit if unable to connect
     }
 };
 

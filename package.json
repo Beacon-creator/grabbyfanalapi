@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node app",
-    "start:dev": "nodemon app"
+    "start": "node app.mjs",
+    "start:dev": "nodemon app.mjs"
   },
   "description": "grabbyfanalapi",
   "author": {

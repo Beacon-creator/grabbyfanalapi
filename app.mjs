@@ -1,33 +1,27 @@
 'use strict';
-var debug = require('debug')('my express app');
-import express, { static } from 'express';
+
+import express from 'express';
 import { join } from 'path';
 import favicon from 'serve-favicon';
 import logger from 'morgan';
 import cookieParser from 'cookie-parser';
-import { json, urlencoded } from 'body-parser';
-
-import routes from './routes/index';
-import users from './routes/users';
-import connectDB from './mongoose/connectMongo';
+import bodyParser  from 'body-parser';
+import routes from './routes/index.mjs';
+import connectDB from './mongoose/connectMongo.mjs';
 
 var app = express();
 
-// view engine setup
-app.set('views', join(__dirname, 'views'));
-app.set('view engine', 'pug');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 connectDB();
-app.use(json());
-app.use(urlencoded({ extended: false }));
+app.use(express.json());
+
 app.use(cookieParser());
-app.use(static(join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', users);
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -63,5 +57,5 @@ app.use(function (err, req, res, next) {
 app.set('port', process.env.PORT || 3000);
 
 var server = app.listen(app.get('port'), function () {
-    debug('Express server listening on port ' + server.address().port);
+    console.log('Express server listening on port ' + server.address().port);
 });
