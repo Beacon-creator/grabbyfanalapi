@@ -8,7 +8,7 @@ import {
     createCardLink,
     updateCardLink,
     deleteCardLink
-} from '../controllers/cardLinksController.mjs';
+} from '../controllers/CardLinksController.mjs';
 
 const router = Router();
 
