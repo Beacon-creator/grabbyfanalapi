@@ -5,7 +5,7 @@ import {
     sendPasswordResetCode,
     verifyPasswordResetCode,
     resetPassword,
-} from '../controllers/passwordResetController.mjs';
+} from '../controllers/PasswordResetController.mjs';
 
 const router = Router();
 
