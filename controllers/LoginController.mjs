@@ -2,7 +2,7 @@
 
 import { compare } from 'bcryptjs';
 import { sign } from 'jsonwebtoken';
-import User from '../mongoose/schemas/User.mjs'; // Mongoose User model
+import User from '../mongoose/schemas/users.mjs'; // Mongoose User model
 
 // Function to handle user login
 export const loginUser = async (req, res) => {

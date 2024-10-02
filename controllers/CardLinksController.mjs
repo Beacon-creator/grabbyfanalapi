@@ -1,6 +1,6 @@
 // controllers/cardLinkController.mjs
 
-import CardLink from '../mongoose/schemas/CardLink.mjs';
+import CardLink from '../mongoose/schemas/cardLink.mjs';
 
 // Get all card links
 export const getCardLinks = async (req, res) => {
