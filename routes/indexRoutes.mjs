@@ -7,10 +7,10 @@ import userRoutes from './userRoutes.mjs';
 
 const router = express.Router();
 
-router.use('/bank-links', bankLinkRoutes);
-router.use('/card-links', cardLinkRoutes);
-router.use('/password-resets', passwordResetRoutes);
-router.use('/sign-up', signupRoutes);
-router.use('/users', userRoutes);
+router.use('/api/bank-link', bankLinkRoutes);
+router.use('/api/card-link', cardLinkRoutes);
+router.use('/api/password-reset', passwordResetRoutes);
+router.use('/api/signup', signupRoutes);
+router.use('/api/users', userRoutes);
 
 export default router;

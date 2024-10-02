@@ -25,7 +25,7 @@ const userSchema = new Schema({
     },
     terms: {
         type: Boolean,
-        required: true // Assuming this is a required field
+       // required: true // Assuming this is a required field
     },
     isEmailVerified: {
         type: Boolean,

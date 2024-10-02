@@ -1,7 +1,7 @@
 // controllers/userController.mjs
 
 import pkg from 'bcryptjs'; // Import the entire bcryptjs module
-import { createTransport } from 'nodemailer';
+import { sendEmail } from '../services/emailService.mjs';
 import User from '../mongoose/schemas/users.mjs'; // Mongoose User model
 import EmailVerification from '../mongoose/schemas/emailVerification.mjs'; // Email verification model
 
@@ -41,7 +41,7 @@ export const signupUser = async (req, res) => {
 
         const newUser = new User({
             email: email.toLowerCase(),
-            passwordHash,
+            passwordHash: Buffer.from(passwordHash).toString('base64'), // Convert hash to Base64
             isEmailVerified: false,
         });
 
@@ -63,7 +63,7 @@ export const signupUser = async (req, res) => {
         const subject = 'Email Verification Code';
         const message = `Your email verification code is ${verificationCode}.`;
 
-        await sendEmail(email, subject, message);
+        await sendEmail(email, subject, message); // Use Mailgun for sending email
 
         return res.status(201).json(newUser);
     } catch (error) {
@@ -109,24 +109,4 @@ export const verifyEmail = async (req, res) => {
 // Helper function to generate a 6-digit verification code
 const generateVerificationCode = () => {
     return Math.floor(100000 + Math.random() * 900000).toString();
-};
-
-// Helper function to send email using Nodemailer
-const sendEmail = async (to, subject, text) => {
-    const transporter = createTransport({
-        service: 'gmail',
-        auth: {
-            user: process.env.EMAIL_USER,
-            pass: process.env.EMAIL_PASS,
-        },
-    });
-
-    const mailOptions = {
-        from: process.env.EMAIL_USER,
-        to,
-        subject,
-        text,
-    };
-
-    return transporter.sendMail(mailOptions);
 };
