@@ -1,14 +1,11 @@
-// controllers/passwordResetController.mjs
-
 import pkg from 'bcryptjs'; // Import the entire bcryptjs module
-import { createTransport } from 'nodemailer';
 import { randomBytes } from 'crypto';
 import User from '../mongoose/schemas/users.mjs'; // Mongoose User model
-import PasswordReset from '../mongoose/schemas/PasswordReset.mjs'; // Model for storing reset codes
-import PasswordResetToken from '../mongoose/schemas/PasswordResetToken.mjs'; // Model for temporary tokens
+import PasswordReset from '../mongoose/schemas/passwordReset.mjs'; // Model for storing reset codes
+import PasswordResetToken from '../mongoose/schemas/passwordresetToken.mjs'; // Model for temporary tokens
+import { sendEmail } from '../services/emailService.mjs'; // Import the sendEmail function from emailService.mjs
 
 const { genSalt, hash } = pkg; // Destructure what you need from the bcryptjs package
-
 
 // Send password reset verification code
 export const sendPasswordResetCode = async (req, res) => {
@@ -35,6 +32,8 @@ export const sendPasswordResetCode = async (req, res) => {
 
         const subject = 'Password Reset Verification Code';
         const message = `Your verification code is ${verificationCode}`;
+
+        // Send the email using the imported sendEmail function
         await sendEmail(email, subject, message);
 
         return res.status(200).json({ message: 'Verification code sent successfully.' });
@@ -123,24 +122,4 @@ const generateVerificationCode = () => {
 // Helper function to generate a temporary token using crypto
 const generateTemporaryToken = () => {
     return randomBytes(32).toString('hex');
-};
-
-// Helper function to send email using Nodemailer
-const sendEmail = async (to, subject, text) => {
-    const transporter = createTransport({
-        service: 'gmail',
-        auth: {
-            user: process.env.EMAIL_USER,
-            pass: process.env.EMAIL_PASS,
-        },
-    });
-
-    const mailOptions = {
-        from: process.env.EMAIL_USER,
-        to,
-        subject,
-        text,
-    };
-
-    return transporter.sendMail(mailOptions);
 };
