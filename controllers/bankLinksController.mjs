@@ -1,7 +1,7 @@
 // controllers/bankLinkController.js
 
 import BankLink from '../mongoose/schemas/BankLink.mjs';
-import VerificationCode from '../mongoose/schemas/VerificationCode.mjs';
+import VerificationCode from '../mongoose/schemas/verificationCode.mjs';
 import { sendEmail } from '../services/emailService.mjs';
 
 // Generate Verification Code
