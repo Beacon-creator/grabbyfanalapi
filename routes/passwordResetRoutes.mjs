@@ -9,13 +9,13 @@ import {
 
 const router = Router();
 
-// POST: api/password-reset/send-code
+// POST: api/PasswordReset/send-code
 router.post('/send-code', sendPasswordResetCode);
 
-// POST: api/password-reset/verify-code
+// POST: api/PasswordReset/verify-code
 router.post('/verify-code', verifyPasswordResetCode);
 
-// POST: api/password-reset/reset-password
+// POST: api/PasswordReset/reset-password
 router.post('/reset-password', resetPassword);
 
 export default router;
