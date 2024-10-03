@@ -1,12 +1,12 @@
 // controllers/userController.mjs
-
+import bcrypt from 'bcryptjs';
 import pkg from 'bcryptjs'; // Import the entire bcryptjs module
 import { sendEmail } from '../services/emailService.mjs';
 import User from '../mongoose/schemas/users.mjs'; // Mongoose User model
 import EmailVerification from '../mongoose/schemas/emailVerification.mjs'; // Email verification model
 
 
-const { genSalt, hash } = pkg; // Destructure what you need from the bcryptjs package
+//const { genSalt, hash } = pkg; // Destructure what you need from the bcryptjs package
 
 // Fetch user by ID
 export const getUserById = async (req, res) => {
@@ -36,12 +36,12 @@ export const signupUser = async (req, res) => {
             return res.status(409).json({ message: 'User with this email already exists' });
         }
 
-        const salt = await genSalt(10);
-        const passwordHash = await hash(password, salt);
+        const salt = 10;
+        const passwordHash = await bcrypt.hash(password, salt);
 
         const newUser = new User({
             email: email.toLowerCase(),
-            passwordHash: Buffer.from(passwordHash).toString('base64'), // Convert hash to Base64
+            passwordHash: passwordHash,
             isEmailVerified: false,
         });
 

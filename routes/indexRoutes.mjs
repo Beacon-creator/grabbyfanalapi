@@ -4,6 +4,7 @@ import cardLinkRoutes from './cardLinkRoutes.mjs';
 import passwordResetRoutes from './passwordResetRoutes.mjs';
 import signupRoutes from './signupRoutes.mjs';
 import userRoutes from './userRoutes.mjs';
+import loginRoutes from './loginRoutes.mjs'
 
 const router = express.Router();
 
@@ -12,5 +13,6 @@ router.use('/api/card-link', cardLinkRoutes);
 router.use('/api/password-reset', passwordResetRoutes);
 router.use('/api/signup', signupRoutes);
 router.use('/api/users', userRoutes);
+router.use('/api/login', loginRoutes);
 
 export default router;

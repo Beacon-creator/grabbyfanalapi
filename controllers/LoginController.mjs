@@ -1,7 +1,9 @@
 // controllers/loginController.mjs
 
-import { compare } from 'bcryptjs';
-import { sign } from 'jsonwebtoken';
+import bcrypt from 'bcryptjs'; // Import default
+const { compare } = bcrypt; // Destructure compare
+import jwt from 'jsonwebtoken'; // Import default
+const { sign } = jwt; // Destructure sign
 import User from '../mongoose/schemas/users.mjs'; // Mongoose User model
 
 // Function to handle user login
@@ -22,8 +24,11 @@ export const loginUser = async (req, res) => {
             return res.status(401).json({ message: 'Invalid credentials' });
         }
 
-        // Verify password
-        const isPasswordValid = await compare(password, user.passwordHash);
+        // Decode the Base64-encoded password hash
+        const decodedPasswordHash = Buffer.from(user.passwordHash, 'base64').toString('utf-8');
+
+        // Verify password by comparing with the decoded password hash
+        const isPasswordValid = await compare(password, decodedPasswordHash);
         if (!isPasswordValid) {
             return res.status(401).json({ message: 'Invalid credentials' });
         }

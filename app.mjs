@@ -39,6 +39,12 @@ if (app.get('env') === 'development') {
     });
 }
 
+
+app.get('/', (req, res) => {
+    res.send('Welcome to the home page');
+});
+
+
 // production error handler
 // no stacktraces leaked to user
 app.use(function (err, req, res, next) {
