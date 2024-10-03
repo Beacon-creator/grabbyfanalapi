@@ -29,6 +29,6 @@ export async function sendEmail(toEmail, subject, message) {
         const response = await client.post(`/messages`, params);
         console.log(`Email sent successfully: ${response.data}`);
     } catch (error) {
-        console.error(`Error sending email: ${error.response?.data || error.message}`);
+       // console.error(`Error sending email: ${error.response?.data || error.message}`);
     }
 }

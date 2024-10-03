@@ -3,15 +3,15 @@ const Schema = _Schema;
 
 // Create BankLink Schema
 const bankLinkSchema = new Schema({
-    accountOwnerName: {
+    AccountOwnerName: {
         type: String,
         required: false // Optional field
     },
-    accountNumber: {
+    AccountNumber: {
         type: String,
         required: false // Optional field
     },
-    bvn: {
+    BVN: {
         type: String,
         required: false // Optional field
     }

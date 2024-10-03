@@ -3,19 +3,19 @@ const Schema = _Schema;
 
 // Create CardLink Schema
 const cardLinkSchema = new Schema({
-    cardHolderName: {
+    CardHolderName: {
         type: String,
         required: false // Optional field
     },
-    cardNumber: {
+    CardNumber: {
         type: String,
         required: false // Optional field
     },
-    cvv: {
+    CVV: {
         type: String,
         required: false // Optional field
     },
-    expiryDate: {
+    ExpiryDate: {
         type: String, // MM/YY format
         required: false // Optional field
     }
