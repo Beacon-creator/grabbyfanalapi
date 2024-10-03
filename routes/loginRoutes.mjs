@@ -1,7 +1,7 @@
 // routes/loginRoutes.mjs
 
 import { Router } from 'express';
-import { loginUser } from '../controllers/loginController.mjs';
+import { loginUser } from '../controllers/LoginController.mjs';
 
 const router = Router();
 
