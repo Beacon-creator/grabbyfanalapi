@@ -12,7 +12,7 @@ router.get('/', verifyToken, getBankLinks);
 // GET: api/bank-links/:id
 router.get('/:id', verifyToken, getBankLinkById);
 
-// POST: api/bank-links
+// POST: api/bank-link
 router.post('/', verifyToken, createBankLink);
 
 // PUT: api/bank-links/:id
