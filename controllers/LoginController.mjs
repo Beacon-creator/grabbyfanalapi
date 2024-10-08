@@ -51,7 +51,7 @@ const createToken = (user) => {
     };
 
     // JWT configuration (from environment variables)
-    const jwtKey = process.env.JWT_KEY;
+    const jwtKey = process.env.JWT_SECRET;
     const issuer = process.env.ISSUER;
     const audience = process.env.AUDIENCE;
 
