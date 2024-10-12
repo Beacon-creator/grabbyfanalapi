@@ -6,25 +6,25 @@ import { getBankLinks, getBankLinkById, createBankLink, updateBankLink, deleteBa
 
 const router = Router();
 
-// GET: api/bank-links
+// GET: api/bank-link
 router.get('/', verifyToken, getBankLinks);
 
-// GET: api/bank-links/:id
+// GET: api/bank-link/:id
 router.get('/:id', verifyToken, getBankLinkById);
 
 // POST: api/bank-link
 router.post('/', verifyToken, createBankLink);
 
-// PUT: api/bank-links/:id
+// PUT: api/bank-link/:id
 router.put('/:id', verifyToken, updateBankLink);
 
-// DELETE: api/bank-links/:id
+// DELETE: api/bank-link/:id
 router.delete('/:id', verifyToken, deleteBankLink);
 
-// POST: api/bank-links/send-verification-code
+// POST: api/bank-link/send-verification-code
 router.post('/send-verification-code', verifyToken, sendVerificationCode);
 
-// POST: api/bank-links/verify-code
+// POST: api/bank-link/verify-code
 router.post('/verify-code', verifyToken, verifyCode);
 
 export default router;

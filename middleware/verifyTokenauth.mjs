@@ -17,7 +17,10 @@ export const verifyToken = (req, res, next) => {
     try {
         // Verify token using the secret key stored in environment variables
         const decoded = jwt.verify(token, process.env.JWT_SECRET); // Verifies the token and decodes it
-        
+
+        if (!decoded.email) {
+            return res.status(401).json({ message: 'Token is missing email information' });
+        }
         // Attach the decoded token to the request (so you can use it in your routes)
         req.user = decoded;
 

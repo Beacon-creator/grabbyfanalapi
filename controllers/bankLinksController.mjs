@@ -13,7 +13,7 @@ const generateVerificationCode = () => {
 // Get all bank links
 export async function getBankLinks(req, res) {
     try {
-        const bankLinks = await find();
+        const bankLinks = await Banklink.find();
         res.status(200).json(bankLinks);
     } catch (error) {
         console.error('Error occurred while fetching bank links:', error);
@@ -24,7 +24,7 @@ export async function getBankLinks(req, res) {
 // Get a specific bank link by ID
 export async function getBankLinkById(req, res) {
     try {
-        const bankLink = await findById(req.params.id);
+        const bankLink = await BankLink.findById(req.params.id);
         if (!bankLink) {
             return res.status(404).json({ message: 'Bank link not found' });
         }
@@ -50,7 +50,7 @@ export async function createBankLink(req, res) {
 // Update a bank link by ID
 export async function updateBankLink(req, res) {
     try {
-        const updatedBankLink = await findByIdAndUpdate(req.params.id, req.body, { new: true });
+        const updatedBankLink = await BankLink.findByIdAndUpdate(req.params.id, req.body, { new: true });
         if (!updatedBankLink) {
             return res.status(404).json({ message: 'Bank link not found' });
         }
@@ -64,7 +64,7 @@ export async function updateBankLink(req, res) {
 // Delete a bank link by ID
 export async function deleteBankLink(req, res) {
     try {
-        const bankLink = await findByIdAndDelete(req.params.id);
+        const bankLink = await BankLink.findByIdAndDelete(req.params.id);
         if (!bankLink) {
             return res.status(404).json({ message: 'Bank link not found' });
         }
@@ -78,6 +78,10 @@ export async function deleteBankLink(req, res) {
 // Send verification code to email
 export async function sendVerificationCode(req, res) {
     try {
+        if (!req.user || !req.user.email) {
+            throw new Error('User email is not available');
+        }
+
         const email = req.user.email;
         const code = generateVerificationCode();
         const expiryDate = new Date(Date.now() + 15 * 60 * 1000); // Expires in 15 minutes
@@ -88,7 +92,7 @@ export async function sendVerificationCode(req, res) {
 
         // Send verification email
         await sendEmail(email, 'Your Verification Code', `Your verification code is ${code}`);
-
+        console.log('Your Verification Code', `Your verification code is ${code}`)
         res.status(200).json({ message: 'Verification code sent successfully' });
     } catch (error) {
         console.error('Error occurred while sending verification code:', error);
@@ -102,7 +106,7 @@ export async function verifyCode(req, res) {
         const { code } = req.body;
         const email = req.user.email;
 
-        const verificationCode = await findOne({ email, code });
+        const verificationCode = await VerificationCode.findOne({ email, code });
         if (!verificationCode || verificationCode.expiryDate < new Date()) {
             return res.status(400).json({ message: 'Invalid or expired verification code' });
         }
