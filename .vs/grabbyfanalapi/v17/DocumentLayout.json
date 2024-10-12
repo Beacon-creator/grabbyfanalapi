@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\user\\OneDrive\\Documents\\ExpressApps\\grabbyfanalapi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8AAEE4A4-BFF0-47EC-9F5A-8DAF6A18B678}|grabbyfanalapi.esproj|c:\\users\\user\\onedrive\\documents\\expressapps\\grabbyfanalapi\\app.mjs||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{8AAEE4A4-BFF0-47EC-9F5A-8DAF6A18B678}|grabbyfanalapi.esproj|solutionrelative:app.mjs||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8AAEE4A4-BFF0-47EC-9F5A-8DAF6A18B678}|grabbyfanalapi.esproj|c:\\users\\user\\onedrive\\documents\\expressapps\\grabbyfanalapi\\.env||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{8AAEE4A4-BFF0-47EC-9F5A-8DAF6A18B678}|grabbyfanalapi.esproj|solutionrelative:.env||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AAEE4A4-BFF0-47EC-9F5A-8DAF6A18B678}|grabbyfanalapi.esproj|c:\\users\\user\\onedrive\\documents\\expressapps\\grabbyfanalapi\\app.mjs||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{8AAEE4A4-BFF0-47EC-9F5A-8DAF6A18B678}|grabbyfanalapi.esproj|solutionrelative:app.mjs||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8AAEE4A4-BFF0-47EC-9F5A-8DAF6A18B678}|grabbyfanalapi.esproj|c:\\users\\user\\onedrive\\documents\\expressapps\\grabbyfanalapi\\mongoose\\schemas\\banklink.mjs||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
@@ -70,7 +70,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -114,18 +114,17 @@
               "RelativeToolTip": "controllers\\LoginController.mjs",
               "ViewState": "AgIAACEAAAAAAAAAAAAtwDUAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-10-05T11:03:00.886Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-05T11:03:00.886Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": ".env",
               "DocumentMoniker": "C:\\Users\\user\\OneDrive\\Documents\\ExpressApps\\grabbyfanalapi\\.env",
               "RelativeDocumentMoniker": ".env",
               "ToolTip": "C:\\Users\\user\\OneDrive\\Documents\\ExpressApps\\grabbyfanalapi\\.env",
               "RelativeToolTip": ".env",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAALAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2024-10-05T11:01:05.501Z",
               "EditorCaption": ""
@@ -140,8 +139,7 @@
               "RelativeToolTip": "middleware\\verifyTokenauth.mjs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-10-05T10:50:35.006Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-05T10:50:35.006Z"
             },
             {
               "$type": "Document",
@@ -153,18 +151,17 @@
               "RelativeToolTip": "routes\\userRoutes.mjs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-10-03T15:40:47.275Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-03T15:40:47.275Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "app.mjs",
               "DocumentMoniker": "C:\\Users\\user\\OneDrive\\Documents\\ExpressApps\\grabbyfanalapi\\app.mjs",
               "RelativeDocumentMoniker": "app.mjs",
               "ToolTip": "C:\\Users\\user\\OneDrive\\Documents\\ExpressApps\\grabbyfanalapi\\app.mjs",
               "RelativeToolTip": "app.mjs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAmwD0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABsAAAAAAAAAAAAiwDAAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2024-10-03T15:22:40.939Z",
               "EditorCaption": ""
@@ -179,8 +176,7 @@
               "RelativeToolTip": "mongoose\\schemas\\emailVerification.mjs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-10-03T15:08:52.947Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-03T15:08:52.947Z"
             },
             {
               "$type": "Document",
@@ -192,8 +188,7 @@
               "RelativeToolTip": "mongoose\\schemas\\passwordresetToken.mjs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-10-03T15:08:26.154Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-03T15:08:26.154Z"
             },
             {
               "$type": "Document",
@@ -205,8 +200,7 @@
               "RelativeToolTip": "mongoose\\schemas\\passwordReset.mjs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-10-03T15:08:20.312Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-03T15:08:20.312Z"
             },
             {
               "$type": "Document",
@@ -218,8 +212,7 @@
               "RelativeToolTip": "routes\\passwordResetRoutes.mjs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-10-03T15:04:40.207Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-03T15:04:40.207Z"
             },
             {
               "$type": "Document",
@@ -231,8 +224,7 @@
               "RelativeToolTip": "controllers\\PasswordResetController.mjs",
               "ViewState": "AgIAAA8AAAAAAAAAAAAiwC0AAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-10-03T15:04:06.147Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-03T15:04:06.147Z"
             },
             {
               "$type": "Document",
@@ -244,8 +236,7 @@
               "RelativeToolTip": "mongoose\\schemas\\cardLink.mjs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-10-03T15:00:05.421Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-03T15:00:05.421Z"
             },
             {
               "$type": "Document",
@@ -257,8 +248,7 @@
               "RelativeToolTip": "routes\\indexRoutes.mjs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-10-03T14:58:45.982Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-03T14:58:45.982Z"
             },
             {
               "$type": "Document",
@@ -270,8 +260,7 @@
               "RelativeToolTip": "routes\\bankLinkRoutes.mjs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-10-03T14:56:52.428Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-03T14:56:52.428Z"
             },
             {
               "$type": "Document",
@@ -283,8 +272,7 @@
               "RelativeToolTip": "controllers\\bankLinksController.mjs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAACgAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-10-03T14:54:32.47Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-03T14:54:32.47Z"
             },
             {
               "$type": "Document",
@@ -296,8 +284,7 @@
               "RelativeToolTip": "mongoose\\schemas\\BankLink.mjs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-10-03T14:54:02.655Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-03T14:54:02.655Z"
             }
           ]
         },
