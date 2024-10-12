@@ -24,11 +24,8 @@ export const loginUser = async (req, res) => {
             return res.status(401).json({ message: 'Invalid credentials' });
         }
 
-        // Decode the Base64-encoded password hash
-        const decodedPasswordHash = Buffer.from(user.passwordHash, 'base64').toString('utf-8');
-
         // Verify password by comparing with the decoded password hash
-        const isPasswordValid = await compare(password, decodedPasswordHash);
+        const isPasswordValid = await bcrypt.compare(password, user.passwordHash);
         if (!isPasswordValid) {
             return res.status(401).json({ message: 'Invalid credentials' });
         }
@@ -46,7 +43,8 @@ export const loginUser = async (req, res) => {
 // Function to create JWT token
 const createToken = (user) => {
     const payload = {
-        sub: user.email, // Subject is the user's email
+        sub: user._id,      // User ID as subject
+        email: user.email,  // Include email in the payload
         jti: new Date().getTime().toString(), // Unique token identifier
     };
 

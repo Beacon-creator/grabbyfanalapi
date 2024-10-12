@@ -18,10 +18,10 @@ const userSchema = new Schema({
         required: false // Optional field
     },
     passwordHash: {
-        type: Buffer // Storing hashed password as a buffer
+        type: String // Storing hashed password as a buffer
     },
     passwordSalt: {
-        type: Buffer // Storing password salt as a buffer
+        type: String // Storing password salt as a buffer
     },
     terms: {
         type: Boolean,

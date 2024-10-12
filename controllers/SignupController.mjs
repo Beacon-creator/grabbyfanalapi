@@ -36,12 +36,13 @@ export const signupUser = async (req, res) => {
             return res.status(409).json({ message: 'User with this email already exists' });
         }
 
-        const salt = 10;
+        const salt = await bcrypt.genSalt(10);
         const passwordHash = await bcrypt.hash(password, salt);
+
 
         const newUser = new User({
             email: email.toLowerCase(),
-            passwordHash: passwordHash,
+            passwordHash,
             isEmailVerified: false,
         });
 
