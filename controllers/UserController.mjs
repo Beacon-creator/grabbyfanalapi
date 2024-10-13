@@ -2,7 +2,7 @@
 import pkg from 'bcryptjs'; // Import the entire bcryptjs module
 import User from '../mongoose/schemas/users.mjs'; // Mongoose User model
 import { validationResult } from 'express-validator';
-//import { logger } from '../middleware/logger.mjs'; // Winston logger
+import { logger } from '../middleware/logger.mjs'; // Winston logger
 
 
 const { genSalt, hash } = pkg; // Destructure what you need from the bcryptjs package
@@ -113,11 +113,11 @@ export const deleteCurrentUserAccount = async (req, res) => {
 export const logoutUser = (req, res) => {
     try {
         const email = req.user.email;
-        cache.delete(email); // Remove session from cache
-        info(`User with email ${email} logged out successfully.`);
+       // cache.delete(email); // Remove session from cache
+        logger.info(`User with email ${email} logged out successfully.`);
         res.status(204).send();
     } catch (error) {
-        _error('Error occurred while logging out.', error);
+        logger.error('Error occurred while logging out.', error);
         res.status(500).send('Internal server error.');
     }
 };
