@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\user\\OneDrive\\Documents\\ExpressApps\\grabbyfanalapi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8AAEE4A4-BFF0-47EC-9F5A-8DAF6A18B678}|grabbyfanalapi.esproj|c:\\users\\user\\onedrive\\documents\\expressapps\\grabbyfanalapi\\routes\\userroutes.mjs||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{8AAEE4A4-BFF0-47EC-9F5A-8DAF6A18B678}|grabbyfanalapi.esproj|solutionrelative:routes\\userroutes.mjs||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8AAEE4A4-BFF0-47EC-9F5A-8DAF6A18B678}|grabbyfanalapi.esproj|c:\\users\\user\\onedrive\\documents\\expressapps\\grabbyfanalapi\\controllers\\usercontroller.mjs||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{8AAEE4A4-BFF0-47EC-9F5A-8DAF6A18B678}|grabbyfanalapi.esproj|solutionrelative:controllers\\usercontroller.mjs||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AAEE4A4-BFF0-47EC-9F5A-8DAF6A18B678}|grabbyfanalapi.esproj|c:\\users\\user\\onedrive\\documents\\expressapps\\grabbyfanalapi\\routes\\userroutes.mjs||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{8AAEE4A4-BFF0-47EC-9F5A-8DAF6A18B678}|grabbyfanalapi.esproj|solutionrelative:routes\\userroutes.mjs||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8AAEE4A4-BFF0-47EC-9F5A-8DAF6A18B678}|grabbyfanalapi.esproj|c:\\users\\user\\onedrive\\documents\\expressapps\\grabbyfanalapi\\middleware\\verifytokenauth.mjs||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
@@ -90,7 +90,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 16,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -139,13 +139,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "UserController.mjs",
               "DocumentMoniker": "C:\\Users\\user\\OneDrive\\Documents\\ExpressApps\\grabbyfanalapi\\controllers\\UserController.mjs",
               "RelativeDocumentMoniker": "controllers\\UserController.mjs",
               "ToolTip": "C:\\Users\\user\\OneDrive\\Documents\\ExpressApps\\grabbyfanalapi\\controllers\\UserController.mjs",
               "RelativeToolTip": "controllers\\UserController.mjs",
-              "ViewState": "AgIAADEAAAAAAAAAAAAAAHsAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAAAG8AAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2024-10-13T10:28:17.338Z",
               "EditorCaption": ""
@@ -225,7 +225,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "userRoutes.mjs",
               "DocumentMoniker": "C:\\Users\\user\\OneDrive\\Documents\\ExpressApps\\grabbyfanalapi\\routes\\userRoutes.mjs",
               "RelativeDocumentMoniker": "routes\\userRoutes.mjs",
