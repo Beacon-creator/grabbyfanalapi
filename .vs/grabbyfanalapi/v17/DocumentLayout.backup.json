@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\user\\OneDrive\\Documents\\ExpressApps\\grabbyfanalapi\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{8AAEE4A4-BFF0-47EC-9F5A-8DAF6A18B678}|grabbyfanalapi.esproj|c:\\users\\user\\onedrive\\documents\\expressapps\\grabbyfanalapi\\controllers\\banklinkscontroller.mjs||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{8AAEE4A4-BFF0-47EC-9F5A-8DAF6A18B678}|grabbyfanalapi.esproj|solutionrelative:controllers\\banklinkscontroller.mjs||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8AAEE4A4-BFF0-47EC-9F5A-8DAF6A18B678}|grabbyfanalapi.esproj|c:\\users\\user\\onedrive\\documents\\expressapps\\grabbyfanalapi\\middleware\\verifytokenauth.mjs||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{8AAEE4A4-BFF0-47EC-9F5A-8DAF6A18B678}|grabbyfanalapi.esproj|solutionrelative:middleware\\verifytokenauth.mjs||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
@@ -21,10 +25,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{8AAEE4A4-BFF0-47EC-9F5A-8DAF6A18B678}|grabbyfanalapi.esproj|c:\\users\\user\\onedrive\\documents\\expressapps\\grabbyfanalapi\\routes\\passwordresetroutes.mjs||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{8AAEE4A4-BFF0-47EC-9F5A-8DAF6A18B678}|grabbyfanalapi.esproj|solutionrelative:routes\\passwordresetroutes.mjs||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8AAEE4A4-BFF0-47EC-9F5A-8DAF6A18B678}|grabbyfanalapi.esproj|c:\\users\\user\\onedrive\\documents\\expressapps\\grabbyfanalapi\\controllers\\banklinkscontroller.mjs||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{8AAEE4A4-BFF0-47EC-9F5A-8DAF6A18B678}|grabbyfanalapi.esproj|solutionrelative:controllers\\banklinkscontroller.mjs||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8AAEE4A4-BFF0-47EC-9F5A-8DAF6A18B678}|grabbyfanalapi.esproj|c:\\users\\user\\onedrive\\documents\\expressapps\\grabbyfanalapi\\routes\\banklinkroutes.mjs||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
@@ -86,7 +86,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 14,
+          "SelectedChildIndex": 25,
           "Children": [
             {
               "$type": "Bookmark",
@@ -158,7 +158,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "auth.mjs",
               "DocumentMoniker": "C:\\Users\\user\\OneDrive\\Documents\\ExpressApps\\grabbyfanalapi\\middleware\\auth.mjs",
               "RelativeDocumentMoniker": "middleware\\auth.mjs",
@@ -166,8 +166,7 @@
               "RelativeToolTip": "middleware\\auth.mjs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-10-10T10:37:07.232Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-10T10:37:07.232Z"
             },
             {
               "$type": "Document",
@@ -195,7 +194,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "verifyTokenauth.mjs",
               "DocumentMoniker": "C:\\Users\\user\\OneDrive\\Documents\\ExpressApps\\grabbyfanalapi\\middleware\\verifyTokenauth.mjs",
               "RelativeDocumentMoniker": "middleware\\verifyTokenauth.mjs",
@@ -220,7 +219,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "app.mjs",
               "DocumentMoniker": "C:\\Users\\user\\OneDrive\\Documents\\ExpressApps\\grabbyfanalapi\\app.mjs",
               "RelativeDocumentMoniker": "app.mjs",
@@ -228,8 +227,7 @@
               "RelativeToolTip": "app.mjs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAD0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-10-03T15:22:40.939Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-03T15:22:40.939Z"
             },
             {
               "$type": "Document",
@@ -269,7 +267,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "passwordResetRoutes.mjs",
               "DocumentMoniker": "C:\\Users\\user\\OneDrive\\Documents\\ExpressApps\\grabbyfanalapi\\routes\\passwordResetRoutes.mjs",
               "RelativeDocumentMoniker": "routes\\passwordResetRoutes.mjs",
@@ -277,12 +275,11 @@
               "RelativeToolTip": "routes\\passwordResetRoutes.mjs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-10-03T15:04:40.207Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-03T15:04:40.207Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "PasswordResetController.mjs",
               "DocumentMoniker": "C:\\Users\\user\\OneDrive\\Documents\\ExpressApps\\grabbyfanalapi\\controllers\\PasswordResetController.mjs",
               "RelativeDocumentMoniker": "controllers\\PasswordResetController.mjs",
@@ -290,8 +287,7 @@
               "RelativeToolTip": "controllers\\PasswordResetController.mjs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAHoAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-10-03T15:04:06.147Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-03T15:04:06.147Z"
             },
             {
               "$type": "Document",
@@ -331,15 +327,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "bankLinksController.mjs",
               "DocumentMoniker": "C:\\Users\\user\\OneDrive\\Documents\\ExpressApps\\grabbyfanalapi\\controllers\\bankLinksController.mjs",
               "RelativeDocumentMoniker": "controllers\\bankLinksController.mjs",
               "ToolTip": "C:\\Users\\user\\OneDrive\\Documents\\ExpressApps\\grabbyfanalapi\\controllers\\bankLinksController.mjs",
               "RelativeToolTip": "controllers\\bankLinksController.mjs",
-              "ViewState": "AgIAAD4AAAAAAAAAAAAgwFAAAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAwFcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-10-03T14:54:32.47Z"
+              "WhenOpened": "2024-10-03T14:54:32.47Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
