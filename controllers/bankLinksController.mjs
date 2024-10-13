@@ -93,7 +93,7 @@ export async function sendVerificationCode(req, res) {
         // Send verification email
         await sendEmail(email, 'Your Verification Code', `Your verification code is ${code}`);
         console.log('Your Verification Code', `Your verification code is ${code}`)
-        res.status(200).json({ message: 'Verification code sent successfully' });
+        res.status(200).json({ message: 'Verification code sent successfully', code });  // Include the code in the response
     } catch (error) {
         console.error('Error occurred while sending verification code:', error);
         res.status(500).json({ message: 'Internal server error' });
