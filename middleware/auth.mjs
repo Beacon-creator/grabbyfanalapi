@@ -1,3 +1,4 @@
+import jwt from 'jsonwebtoken'; // Import jsonwebtoken for verifying the token
 import logger from '../middleware/logger.mjs'; // Import the entire logger
 
 // JWT Middleware for authentication
@@ -7,7 +8,8 @@ const auth = (req, res, next) => {
         return res.status(401).send('Access denied. No token provided.');
     }
     try {
-        const decoded = verify(token, process.env.JWT_SECRET);
+        // Use jwt.verify to verify the token
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
         req.user = decoded;
         next();
     } catch (error) {
