@@ -15,6 +15,10 @@ import {
 
 const router = Router();
 
+// DELETE: api/users/deleteAccount (Delete current user)
+router.delete('/deleteAccount', auth, deleteCurrentUserAccount);
+
+
 // GET: api/users (Get all users)
 router.get('/', auth, getAllUsers);
 
@@ -36,9 +40,6 @@ router.post(
 
 // DELETE: api/users/:id (Delete user by ID)
 router.delete('/:id', auth, deleteUserById);
-
-// DELETE: api/users/deleteAccount (Delete current user)
-router.delete('/deleteAccount', auth, deleteCurrentUserAccount);
 
 // POST: api/users/logout (Logout user)
 router.post('/logout', auth, logoutUser);
