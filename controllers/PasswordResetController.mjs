@@ -36,7 +36,7 @@ export const sendPasswordResetCode = async (req, res) => {
         // Send the email using the imported sendEmail function
         await sendEmail(email, subject, message);
 
-        return res.status(200).json({ message: 'Verification code sent successfully.' });
+        return res.status(200).json({ message: 'Verification code sent successfully.', verificationCode  });
     } catch (error) {
         console.error('Error during password reset request:', error);
         res.status(500).json({ message: 'Internal server error' });
