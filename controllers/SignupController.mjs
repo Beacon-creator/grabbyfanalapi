@@ -66,7 +66,11 @@ export const signupUser = async (req, res) => {
 
         await sendEmail(email, subject, message); // Use Mailgun for sending email
 
-        return res.status(201).json(newUser);
+        return res.status(201).json({
+            message: 'User created successfully. Verification code sent to email.',
+            newUser,
+            verificationCode // Include the verification code in the response
+        });
     } catch (error) {
         console.error('Error during signup:', error);
         res.status(500).json({ message: 'Internal server error' });
